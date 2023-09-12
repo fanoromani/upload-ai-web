@@ -1,5 +1,10 @@
-export function App() {
-  return <h1>Hello World</h1>;
-}
+import { Button } from "./components/ui/button";
 
-App;
+export function App() {
+  return (
+    <>
+      <h1>Hello World</h1>
+      <Button>teste</Button>
+    </>
+  );
+}
