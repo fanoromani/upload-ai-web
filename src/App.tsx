@@ -1,4 +1,4 @@
-import { FileVideo, Github, Upload, Wand2 } from "lucide-react";
+import { Github, Wand2 } from "lucide-react";
 import { Button } from "./components/ui/button";
 import { Separator } from "./components/ui/separator";
 import { Textarea } from "./components/ui/textarea";
@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from "./components/ui/select";
 import { Slider } from "./components/ui/slider";
+import { VideoInputForm } from "./components/video-input-form";
 
 export function App() {
   return (
@@ -18,7 +19,16 @@ export function App() {
       <div className="px-6 py-3 flex items-center justify-between border-b">
         <h1 className="text-xl font-bold">upload.ai</h1>
         <div className="flex items-center gap-3">
-          <span className="text-sm text-muted-foreground">Made with love</span>
+          <span className="text-sm text-muted-foreground">
+            Developed by{" "}
+            <a
+              className="text-primary hover:text-primary/80 transition"
+              href="https://fanoromani.netlify.app"
+              target="_blank"
+            >
+              @fanoromani
+            </a>
+          </span>
           <Separator orientation="vertical" className="h-6" />
           <Button variant={"outline"}>
             <Github className="w-4 h-4 mr-2" />
@@ -46,34 +56,7 @@ export function App() {
           </p>
         </div>
         <aside className="w-80 space-y-6">
-          <form className="space-y-4">
-            <label
-              htmlFor="video"
-              className="border flex rounded-md aspect-video cursor-pointer border-dashed text-sm flex-col gap-2 items-center justify-center text-muted-foreground hover:bg-primary/5"
-            >
-              <FileVideo className="w-4 h-4" />
-              Select video
-            </label>
-            <input
-              type="file"
-              id="video"
-              accept="video/mp4"
-              className="sr-only"
-            />
-            <Separator />
-            <div className="space-y-2">
-              <Label htmlFor="transcription-prompt">Transcription prompt</Label>
-              <Textarea
-                id="transcription-prompt"
-                className="h-20 leading-relaxed resize-none"
-                placeholder="Search for keywords mentioned in the video separated by commas ( , )"
-              />
-            </div>
-            <Button type="submit" className="w-full">
-              Upload video
-              <Upload className="w-4 h-4 ml-2" />
-            </Button>
-          </form>
+          <VideoInputForm />
           <Separator />
           <form className="space-y-4">
             <div className="space-y-2">
